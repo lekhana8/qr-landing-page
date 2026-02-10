@@ -1,0 +1,69 @@
+<div class="main-container">
+  @if (!isAccepted()) {
+    <div class="glass-card">
+      <div class="year-badge">Chapter 02 🤎</div>
+<div class="timer-container">
+  <div class="timer-box">
+    <span>{{ days() }}</span>
+    <label>Days</label>
+  </div>
+  <div class="timer-box">
+    <span>{{ hours() }}</span>
+    <label>Hrs</label>
+  </div>
+  <div class="timer-box">
+    <span>{{ minutes() }}</span>
+    <label>Min</label>
+  </div>
+  <div class="timer-box seconds">
+    <span>{{ seconds() }}</span>
+    <label>Sec</label>
+  </div>
+</div>
+      <h3>Will you be my Valentine for this year Love???</h3>
+      <p class="subtitle">A whole year later, and you're still my favorite person (and always will be 🤭)</p>
+      
+      <div class="memory-grid">
+        @for (item of memories; track item.text) {
+          <div class="memory-pill">
+            <span class="emoji">{{item.emoji}}</span>
+            <span class="text">{{item.text}}</span>
+          </div>
+        }
+      </div>
+
+      <div class="btn-group">
+        <button class="primary-btn" (click)="onYes()">Yes, Always</button>
+        <button class="secondary-btn" (click)="onYes()">Of Course!</button>
+      </div>
+
+      <div class="hidden-trigger" (click)="toggleSecret()">
+        {{ showSecretMessage() ? 'Close Letter ✉️' : 'Read my secret note 💌' }}
+      </div>
+
+      @if (showSecretMessage()) {
+        <div class="secret-note">
+          "you're my Dopamine what exactly I need. I love you."
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="success-card">
+      <div class="main-icon">🤎</div>
+      <h3>Thankss Dinesh Garu, I know U will say YES!</h3>
+      <ul class="reason-list datecolor">
+        @for (reason of reasons; track reason) {
+          <li class="reason-item datecolor">{{reason}}</li>
+        }
+      </ul>
+      <div class="footer-tag iloveyou">I LOVE YOU SOOOOO MUCHHHH MY MANNN!!!.</div>
+    </div>
+  }
+</div>
+<div class="floating-container">
+  <span class="float-item">🤎</span>
+  <span class="float-item">☕</span>
+  <span class="float-item">✨</span>
+  <span class="float-item">🚲</span>
+  <span class="float-item">🤎</span>
+</div>
